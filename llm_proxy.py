@@ -23,11 +23,15 @@ PORT = int(os.getenv("PROXY_PORT", 11435))
 @app.route('/v1/chat/completions', methods=['POST'])
 @app.route('/chat/completions', methods=['POST'])
 def proxy_completions():
+    """ Leitet Chat-Anfragen an das definierte Netzwerk-Backend weiter. """
     try:
         data = request.get_json()
+        
+        # Override: Erzwinge das lokale Zielmodell für maximale Kontrolle
         data["model"] = SELECTED_MODEL
         
-        # Stability Delay for Agents / Stabilitäts-Pause
+        # Stabilitäts-Delay: Hilft automatisierten Systemen (Agenten), 
+        # Race-Conditions beim UI-Rendering zu vermeiden.
         time.sleep(0.5)
         
         print(f"[{VERSION}] Routing request to {SELECTED_MODEL} via {OLLAMA_URL}...")
@@ -43,11 +47,13 @@ def proxy_completions():
         )
 
         if is_streaming:
+            # Reicht den Stream vom Backend direkt an den Client weiter
             return Response(
                 resp.iter_content(chunk_size=1024), 
                 content_type=resp.headers.get('Content-Type', 'text/event-stream')
             )
         
+        # Standard-Response für Nicht-Streaming-Anfragen
         return Response(resp.content, resp.status_code, dict(resp.headers))
 
     except Exception as e:
@@ -56,6 +62,7 @@ def proxy_completions():
 
 @app.route('/v1/models', methods=['GET'])
 def list_models():
+    """ Simuliert die OpenAI Modell-Liste für volle Client-Kompatibilität. """
     return jsonify({
         "object": "list",
         "data": [{
@@ -70,6 +77,7 @@ if __name__ == '__main__':
     print(f"--- LLM Proxy | Ollama-Bridge {VERSION} active ---")
     print(f"Target/Ziel: {OLLAMA_URL}")
     print(f"Model/Modell: {SELECTED_MODEL}")
+    # Erlaubt Verbindungen von außen (0.0.0.0)
     app.run(host='0.0.0.0', port=PORT)
 
 # EOF
