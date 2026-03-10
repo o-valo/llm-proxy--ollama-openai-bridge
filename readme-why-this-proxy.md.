@@ -1,0 +1,90 @@
+💡 Der einfache Vergleich: Warum dieser Proxy? / Why this Proxy?
+
+ [DE]
+Stell dir vor, du möchtest Anfragen an deine lokale KI schicken. Du hast zwei
+Wege:
+
+    Die eingebaute Ollama API (Der Standard-Briefkasten) 📮
+
+        Das Problem: Versteht oft nur den eigenen Dialekt perfekt. Wenn ein
+        "OpenAI-Programm" anklopft, gibt es Missverständnisse. Zudem antwortet
+        Ollama sofort – was bei manchen Agenten-UIs zu Fehlern beim Laden führt,
+        weil die Grafik noch nicht bereit ist.
+
+        Das Modell-Chaos: Du musst in jeder App mühsam den exakten Modellnamen
+        eintragen. Stimmt ein Zeichen nicht, bricht die Verbindung ab.
+
+    Unser Python llm-proxy (Der clevere Postbeamte) 🏢
+
+        Der Übersetzer: Er simuliert OpenAI so perfekt (/v1/models), dass jede
+        App denkt, sie spricht mit dem Original.
+
+        Der Stabilitäts-Garant (Delay): Ein kleiner Moment Wartezeit (0,5 Sek.)
+        sorgt dafür, dass Web-Oberflächen und Agenten stabil laden, ohne
+        abzustürzen.
+
+        Die Modell-Automatik: Der Proxy erzwingt dein konfiguriertes Modell (z.B.
+        qwen3.5). Du stellst es einmal zentral ein, und alle Apps nutzen es
+        sofort.
+
+[EN]
+
+Imagine you want to send requests to your local AI. You have two ways:
+
+    The Built-in Ollama API (The Standard Mailbox) 📮
+
+        The Problem: Often only speaks its own dialect perfectly. When an
+        "OpenAI-based app" knocks, misunderstandings occur. Also, Ollama responds
+        instantly—which can lead to rendering errors in some agent UIs because
+        the interface isn't ready for the data.
+
+        Model Confusion: You have to manually enter the exact model name in every
+        single app. If one character is wrong, the connection fails.
+
+    Our Python llm-proxy (The Clever Postmaster) 🏢
+
+        The Translator: It simulates OpenAI so perfectly (/v1/models) that every
+        app thinks it’s talking to the original.
+
+        The Stability Guardian (Delay): A tiny 0.5s delay ensures that web
+        interfaces and agents load stably without crashing.
+
+        Model Automation: The proxy enforces your configured model (e.g.,
+        qwen3.5). Set it once centrally, and all apps use it immediately.
+
+🎯 Die 3 Hauptvorteile / The 3 Key Advantages [DE]
+
+    Maximale Kompatibilität: Der Proxy ist ein "Universaladapter". Er lässt
+    Programme, die für OpenAI gebaut wurden, ohne Murren mit deinem lokalen Setup
+    zusammenarbeiten.
+
+    Stabilität durch Verzögerung: Durch das eingebaute Stabilitäts-Delay laufen
+    automatisierte Systeme und UIs deutlich runder und produzieren weniger
+    Verbindungsfehler.
+
+    Zentrale Kontrolle: Du konfigurierst das Ziel-Modell einmal im Proxy. Alle
+    verbundenen Apps nutzen dann automatisch dieses Modell.
+
+[EN]
+
+    Maximum Compatibility: The proxy is a "Universal Adapter." It allows programs
+    built for OpenAI to work seamlessly with your local setup without any
+    complaints.
+
+    Stability through Delay: Thanks to the built-in Stability Delay, automated
+    systems and UIs run much smoother and produce significantly fewer connection
+    errors.
+
+    Centralized Control: You configure your target model once in the proxy. All
+    connected apps then use this model automatically.
+
+🏁 Fazit / Summary
+
+    [DE] Die eingebaute API ist der Feldweg – man kommt ans Ziel, aber es
+    holpert. Dieser Python-Proxy ist die ausgebaute Autobahn mit Pförtner. Er
+    macht dein KI-Setup professionell, stabil und zuverlässig.
+
+    [EN] The built-in API is a dirt road—it gets you there, but it's bumpy. This
+    Python Proxy is a paved highway with a concierge. It makes your AI setup
+    professional, stable, and reliable.
+
