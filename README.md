@@ -44,4 +44,6 @@ python llm_proxy.py
 
     Stability Delay: A short delay helps agent systems (like browser automation) run more reliably.
 
+    Powerd by AI
+
     
